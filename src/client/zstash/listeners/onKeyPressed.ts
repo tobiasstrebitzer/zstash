@@ -12,7 +12,7 @@ if (ModOptions?.AddKeyBinding != null) {
 }
 
 export const onKeyPressedListener: OnKeyPressedListener = (key) => {
-  if (key !== Keyboard.KEY_SLASH) { return }
+  if (key !== QuickStashKey.key) { return }
   const player = getPlayer()
   const items = getNestedItems(map(player.getInventory().getItems())).filter((item) => !item.isFavorite() && !item.isEquipped())
   const objects = getObjectsNearPlayer(player, 8, (entry) => entry.getContainer() != null && !entry.isZombie() && entry.getItemContainer().isExplored())
