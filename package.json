@@ -1,0 +1,31 @@
+{
+  "name": "zomboid",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Tobias Strebitzer",
+  "license": "MIT",
+  "scripts": {
+    "clean": "rimraf ~/Zomboid/Workshop/ZStash/Contents/mods/zstash/media/lua",
+    "build": "tstl --outDir ~/Zomboid/Workshop/ZStash/Contents/mods",
+    "watch": "tstl --watch --outDir ~/Zomboid/Workshop/ZStash/Contents/mods",
+    "copy:vendor": "cp -r src/client/ManageContainers ~/Zomboid/Workshop/ZStash/Contents/mods/zstash/media/lua/client/ManageContainers",
+    "copy:i18n": "cp -r src/shared/Translate ~/Zomboid/Workshop/ZStash/Contents/mods/zstash/media/lua/shared/Translate",
+    "prepack": "yarn clean && yarn build && yarn copy:vendor && yarn copy:i18n",
+    "lint": "eslint src"
+  },
+  "devDependencies": {
+    "@asledgehammer/tstl-pipewrench": "^0.0.15",
+    "@typescript-eslint/eslint-plugin": "^5.56.0",
+    "@typescript-eslint/parser": "^5.56.0",
+    "eslint": "^8.36.0",
+    "lua-types": "^2.13.1",
+    "rimraf": "^4.4.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.2",
+    "typescript-to-lua": "^1.14.0"
+  },
+  "dependencies": {
+    "@asledgehammer/pipewrench": "^41.76.1",
+    "@asledgehammer/pipewrench-events": "^41.73.0"
+  }
+}
